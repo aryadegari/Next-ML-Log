@@ -17,6 +17,10 @@ The objective of this project is to develop a sophisticated tool for generating 
 
 The objective of this project is to utilize machine learning algorithms on adaptive business process logs to identify correlations in a way that builds upon existing experiments. The project seeks to develop insights into business processes . To achieve this objective, the project will employ various machine learning techniques to analyse sets of adaptive business process data and identify patterns.
 
+### Demostration Video
+The [Demonstration Video](https://doi.org/10.6084/m9.figshare.24082083.v1) explains briefly how the tool works and shows some of its features.
+
+
 ### Running the program
 
 1. Install Python 3.11+
