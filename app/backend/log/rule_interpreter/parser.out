@@ -1,0 +1,673 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> rules
+Rule 1     rules -> rules rule semicolon
+Rule 2     rules -> empty
+Rule 3     rule -> if identifier expr then action
+Rule 4     rule -> if rt_expr then action
+Rule 5     expr -> this_tok identifier equality value
+Rule 6     expr -> accumulative_tok identifier equality value
+Rule 7     rt_expr -> running_total_tok identifier equality value
+Rule 8     action -> skip identifier
+Rule 9     action -> insert identifier lb_tok attributes rb_tok
+Rule 10    action -> insert identifier
+Rule 11    action -> parallel_list
+Rule 12    action -> series_list
+Rule 13    attributes -> attributes this_tok identifier value
+Rule 14    attributes -> attributes this_tok identifier distribution
+Rule 15    attributes -> this_tok identifier value
+Rule 16    attributes -> this_tok identifier distribution
+Rule 17    distribution -> normal_tok lb_tok value value rb_tok
+Rule 18    distribution -> uniform_tok lb_tok value value value rb_tok
+Rule 19    parallel_list -> parallel_item
+Rule 20    parallel_list -> parallel_item parallel_next
+Rule 21    parallel_item -> identifier parallel_tok identifier
+Rule 22    parallel_next -> parallel_tok identifier
+Rule 23    parallel_next -> parallel_next parallel_tok identifier
+Rule 24    series_list -> series_item
+Rule 25    series_list -> series_item series_next
+Rule 26    series_item -> identifier series_tok identifier
+Rule 27    series_next -> series_tok identifier
+Rule 28    series_next -> series_next series_tok identifier
+Rule 29    empty -> <empty>
+
+Terminals, with rules where they appear
+
+accumulative_tok     : 6
+equality             : 5 6 7
+error                : 
+identifier           : 3 5 6 7 8 9 10 13 14 15 16 21 21 22 23 26 26 27 28
+if                   : 3 4
+insert               : 9 10
+lb_tok               : 9 17 18
+normal_tok           : 17
+parallel_tok         : 21 22 23
+rb_tok               : 9 17 18
+running_total_tok    : 7
+semicolon            : 1
+series_tok           : 26 27 28
+skip                 : 8
+then                 : 3 4
+this_tok             : 5 13 14 15 16
+uniform_tok          : 18
+value                : 5 6 7 13 15 17 17 18 18 18
+
+Nonterminals, with rules where they appear
+
+action               : 3 4
+attributes           : 9 13 14
+distribution         : 14 16
+empty                : 2
+expr                 : 3
+parallel_item        : 19 20
+parallel_list        : 11
+parallel_next        : 20 23
+rt_expr              : 4
+rule                 : 1
+rules                : 1 0
+series_item          : 24 25
+series_list          : 12
+series_next          : 25 28
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . rules
+    (1) rules -> . rules rule semicolon
+    (2) rules -> . empty
+    (29) empty -> .
+
+    if              reduce using rule 29 (empty -> .)
+    $end            reduce using rule 29 (empty -> .)
+
+    rules                          shift and go to state 1
+    empty                          shift and go to state 2
+
+state 1
+
+    (0) S' -> rules .
+    (1) rules -> rules . rule semicolon
+    (3) rule -> . if identifier expr then action
+    (4) rule -> . if rt_expr then action
+
+    if              shift and go to state 4
+
+    rule                           shift and go to state 3
+
+state 2
+
+    (2) rules -> empty .
+
+    if              reduce using rule 2 (rules -> empty .)
+    $end            reduce using rule 2 (rules -> empty .)
+
+
+state 3
+
+    (1) rules -> rules rule . semicolon
+
+    semicolon       shift and go to state 5
+
+
+state 4
+
+    (3) rule -> if . identifier expr then action
+    (4) rule -> if . rt_expr then action
+    (7) rt_expr -> . running_total_tok identifier equality value
+
+    identifier      shift and go to state 6
+    running_total_tok shift and go to state 8
+
+    rt_expr                        shift and go to state 7
+
+state 5
+
+    (1) rules -> rules rule semicolon .
+
+    if              reduce using rule 1 (rules -> rules rule semicolon .)
+    $end            reduce using rule 1 (rules -> rules rule semicolon .)
+
+
+state 6
+
+    (3) rule -> if identifier . expr then action
+    (5) expr -> . this_tok identifier equality value
+    (6) expr -> . accumulative_tok identifier equality value
+
+    this_tok        shift and go to state 10
+    accumulative_tok shift and go to state 11
+
+    expr                           shift and go to state 9
+
+state 7
+
+    (4) rule -> if rt_expr . then action
+
+    then            shift and go to state 12
+
+
+state 8
+
+    (7) rt_expr -> running_total_tok . identifier equality value
+
+    identifier      shift and go to state 13
+
+
+state 9
+
+    (3) rule -> if identifier expr . then action
+
+    then            shift and go to state 14
+
+
+state 10
+
+    (5) expr -> this_tok . identifier equality value
+
+    identifier      shift and go to state 15
+
+
+state 11
+
+    (6) expr -> accumulative_tok . identifier equality value
+
+    identifier      shift and go to state 16
+
+
+state 12
+
+    (4) rule -> if rt_expr then . action
+    (8) action -> . skip identifier
+    (9) action -> . insert identifier lb_tok attributes rb_tok
+    (10) action -> . insert identifier
+    (11) action -> . parallel_list
+    (12) action -> . series_list
+    (19) parallel_list -> . parallel_item
+    (20) parallel_list -> . parallel_item parallel_next
+    (24) series_list -> . series_item
+    (25) series_list -> . series_item series_next
+    (21) parallel_item -> . identifier parallel_tok identifier
+    (26) series_item -> . identifier series_tok identifier
+
+    skip            shift and go to state 18
+    insert          shift and go to state 20
+    identifier      shift and go to state 19
+
+    action                         shift and go to state 17
+    parallel_list                  shift and go to state 21
+    series_list                    shift and go to state 22
+    parallel_item                  shift and go to state 23
+    series_item                    shift and go to state 24
+
+state 13
+
+    (7) rt_expr -> running_total_tok identifier . equality value
+
+    equality        shift and go to state 25
+
+
+state 14
+
+    (3) rule -> if identifier expr then . action
+    (8) action -> . skip identifier
+    (9) action -> . insert identifier lb_tok attributes rb_tok
+    (10) action -> . insert identifier
+    (11) action -> . parallel_list
+    (12) action -> . series_list
+    (19) parallel_list -> . parallel_item
+    (20) parallel_list -> . parallel_item parallel_next
+    (24) series_list -> . series_item
+    (25) series_list -> . series_item series_next
+    (21) parallel_item -> . identifier parallel_tok identifier
+    (26) series_item -> . identifier series_tok identifier
+
+    skip            shift and go to state 18
+    insert          shift and go to state 20
+    identifier      shift and go to state 19
+
+    action                         shift and go to state 26
+    parallel_list                  shift and go to state 21
+    series_list                    shift and go to state 22
+    parallel_item                  shift and go to state 23
+    series_item                    shift and go to state 24
+
+state 15
+
+    (5) expr -> this_tok identifier . equality value
+
+    equality        shift and go to state 27
+
+
+state 16
+
+    (6) expr -> accumulative_tok identifier . equality value
+
+    equality        shift and go to state 28
+
+
+state 17
+
+    (4) rule -> if rt_expr then action .
+
+    semicolon       reduce using rule 4 (rule -> if rt_expr then action .)
+
+
+state 18
+
+    (8) action -> skip . identifier
+
+    identifier      shift and go to state 29
+
+
+state 19
+
+    (21) parallel_item -> identifier . parallel_tok identifier
+    (26) series_item -> identifier . series_tok identifier
+
+    parallel_tok    shift and go to state 30
+    series_tok      shift and go to state 31
+
+
+state 20
+
+    (9) action -> insert . identifier lb_tok attributes rb_tok
+    (10) action -> insert . identifier
+
+    identifier      shift and go to state 32
+
+
+state 21
+
+    (11) action -> parallel_list .
+
+    semicolon       reduce using rule 11 (action -> parallel_list .)
+
+
+state 22
+
+    (12) action -> series_list .
+
+    semicolon       reduce using rule 12 (action -> series_list .)
+
+
+state 23
+
+    (19) parallel_list -> parallel_item .
+    (20) parallel_list -> parallel_item . parallel_next
+    (22) parallel_next -> . parallel_tok identifier
+    (23) parallel_next -> . parallel_next parallel_tok identifier
+
+    semicolon       reduce using rule 19 (parallel_list -> parallel_item .)
+    parallel_tok    shift and go to state 34
+
+    parallel_next                  shift and go to state 33
+
+state 24
+
+    (24) series_list -> series_item .
+    (25) series_list -> series_item . series_next
+    (27) series_next -> . series_tok identifier
+    (28) series_next -> . series_next series_tok identifier
+
+    semicolon       reduce using rule 24 (series_list -> series_item .)
+    series_tok      shift and go to state 36
+
+    series_next                    shift and go to state 35
+
+state 25
+
+    (7) rt_expr -> running_total_tok identifier equality . value
+
+    value           shift and go to state 37
+
+
+state 26
+
+    (3) rule -> if identifier expr then action .
+
+    semicolon       reduce using rule 3 (rule -> if identifier expr then action .)
+
+
+state 27
+
+    (5) expr -> this_tok identifier equality . value
+
+    value           shift and go to state 38
+
+
+state 28
+
+    (6) expr -> accumulative_tok identifier equality . value
+
+    value           shift and go to state 39
+
+
+state 29
+
+    (8) action -> skip identifier .
+
+    semicolon       reduce using rule 8 (action -> skip identifier .)
+
+
+state 30
+
+    (21) parallel_item -> identifier parallel_tok . identifier
+
+    identifier      shift and go to state 40
+
+
+state 31
+
+    (26) series_item -> identifier series_tok . identifier
+
+    identifier      shift and go to state 41
+
+
+state 32
+
+    (9) action -> insert identifier . lb_tok attributes rb_tok
+    (10) action -> insert identifier .
+
+    lb_tok          shift and go to state 42
+    semicolon       reduce using rule 10 (action -> insert identifier .)
+
+
+state 33
+
+    (20) parallel_list -> parallel_item parallel_next .
+    (23) parallel_next -> parallel_next . parallel_tok identifier
+
+    semicolon       reduce using rule 20 (parallel_list -> parallel_item parallel_next .)
+    parallel_tok    shift and go to state 43
+
+
+state 34
+
+    (22) parallel_next -> parallel_tok . identifier
+
+    identifier      shift and go to state 44
+
+
+state 35
+
+    (25) series_list -> series_item series_next .
+    (28) series_next -> series_next . series_tok identifier
+
+    semicolon       reduce using rule 25 (series_list -> series_item series_next .)
+    series_tok      shift and go to state 45
+
+
+state 36
+
+    (27) series_next -> series_tok . identifier
+
+    identifier      shift and go to state 46
+
+
+state 37
+
+    (7) rt_expr -> running_total_tok identifier equality value .
+
+    then            reduce using rule 7 (rt_expr -> running_total_tok identifier equality value .)
+
+
+state 38
+
+    (5) expr -> this_tok identifier equality value .
+
+    then            reduce using rule 5 (expr -> this_tok identifier equality value .)
+
+
+state 39
+
+    (6) expr -> accumulative_tok identifier equality value .
+
+    then            reduce using rule 6 (expr -> accumulative_tok identifier equality value .)
+
+
+state 40
+
+    (21) parallel_item -> identifier parallel_tok identifier .
+
+    parallel_tok    reduce using rule 21 (parallel_item -> identifier parallel_tok identifier .)
+    semicolon       reduce using rule 21 (parallel_item -> identifier parallel_tok identifier .)
+
+
+state 41
+
+    (26) series_item -> identifier series_tok identifier .
+
+    series_tok      reduce using rule 26 (series_item -> identifier series_tok identifier .)
+    semicolon       reduce using rule 26 (series_item -> identifier series_tok identifier .)
+
+
+state 42
+
+    (9) action -> insert identifier lb_tok . attributes rb_tok
+    (13) attributes -> . attributes this_tok identifier value
+    (14) attributes -> . attributes this_tok identifier distribution
+    (15) attributes -> . this_tok identifier value
+    (16) attributes -> . this_tok identifier distribution
+
+    this_tok        shift and go to state 48
+
+    attributes                     shift and go to state 47
+
+state 43
+
+    (23) parallel_next -> parallel_next parallel_tok . identifier
+
+    identifier      shift and go to state 49
+
+
+state 44
+
+    (22) parallel_next -> parallel_tok identifier .
+
+    parallel_tok    reduce using rule 22 (parallel_next -> parallel_tok identifier .)
+    semicolon       reduce using rule 22 (parallel_next -> parallel_tok identifier .)
+
+
+state 45
+
+    (28) series_next -> series_next series_tok . identifier
+
+    identifier      shift and go to state 50
+
+
+state 46
+
+    (27) series_next -> series_tok identifier .
+
+    series_tok      reduce using rule 27 (series_next -> series_tok identifier .)
+    semicolon       reduce using rule 27 (series_next -> series_tok identifier .)
+
+
+state 47
+
+    (9) action -> insert identifier lb_tok attributes . rb_tok
+    (13) attributes -> attributes . this_tok identifier value
+    (14) attributes -> attributes . this_tok identifier distribution
+
+    rb_tok          shift and go to state 51
+    this_tok        shift and go to state 52
+
+
+state 48
+
+    (15) attributes -> this_tok . identifier value
+    (16) attributes -> this_tok . identifier distribution
+
+    identifier      shift and go to state 53
+
+
+state 49
+
+    (23) parallel_next -> parallel_next parallel_tok identifier .
+
+    parallel_tok    reduce using rule 23 (parallel_next -> parallel_next parallel_tok identifier .)
+    semicolon       reduce using rule 23 (parallel_next -> parallel_next parallel_tok identifier .)
+
+
+state 50
+
+    (28) series_next -> series_next series_tok identifier .
+
+    series_tok      reduce using rule 28 (series_next -> series_next series_tok identifier .)
+    semicolon       reduce using rule 28 (series_next -> series_next series_tok identifier .)
+
+
+state 51
+
+    (9) action -> insert identifier lb_tok attributes rb_tok .
+
+    semicolon       reduce using rule 9 (action -> insert identifier lb_tok attributes rb_tok .)
+
+
+state 52
+
+    (13) attributes -> attributes this_tok . identifier value
+    (14) attributes -> attributes this_tok . identifier distribution
+
+    identifier      shift and go to state 54
+
+
+state 53
+
+    (15) attributes -> this_tok identifier . value
+    (16) attributes -> this_tok identifier . distribution
+    (17) distribution -> . normal_tok lb_tok value value rb_tok
+    (18) distribution -> . uniform_tok lb_tok value value value rb_tok
+
+    value           shift and go to state 55
+    normal_tok      shift and go to state 57
+    uniform_tok     shift and go to state 58
+
+    distribution                   shift and go to state 56
+
+state 54
+
+    (13) attributes -> attributes this_tok identifier . value
+    (14) attributes -> attributes this_tok identifier . distribution
+    (17) distribution -> . normal_tok lb_tok value value rb_tok
+    (18) distribution -> . uniform_tok lb_tok value value value rb_tok
+
+    value           shift and go to state 59
+    normal_tok      shift and go to state 57
+    uniform_tok     shift and go to state 58
+
+    distribution                   shift and go to state 60
+
+state 55
+
+    (15) attributes -> this_tok identifier value .
+
+    rb_tok          reduce using rule 15 (attributes -> this_tok identifier value .)
+    this_tok        reduce using rule 15 (attributes -> this_tok identifier value .)
+
+
+state 56
+
+    (16) attributes -> this_tok identifier distribution .
+
+    rb_tok          reduce using rule 16 (attributes -> this_tok identifier distribution .)
+    this_tok        reduce using rule 16 (attributes -> this_tok identifier distribution .)
+
+
+state 57
+
+    (17) distribution -> normal_tok . lb_tok value value rb_tok
+
+    lb_tok          shift and go to state 61
+
+
+state 58
+
+    (18) distribution -> uniform_tok . lb_tok value value value rb_tok
+
+    lb_tok          shift and go to state 62
+
+
+state 59
+
+    (13) attributes -> attributes this_tok identifier value .
+
+    rb_tok          reduce using rule 13 (attributes -> attributes this_tok identifier value .)
+    this_tok        reduce using rule 13 (attributes -> attributes this_tok identifier value .)
+
+
+state 60
+
+    (14) attributes -> attributes this_tok identifier distribution .
+
+    rb_tok          reduce using rule 14 (attributes -> attributes this_tok identifier distribution .)
+    this_tok        reduce using rule 14 (attributes -> attributes this_tok identifier distribution .)
+
+
+state 61
+
+    (17) distribution -> normal_tok lb_tok . value value rb_tok
+
+    value           shift and go to state 63
+
+
+state 62
+
+    (18) distribution -> uniform_tok lb_tok . value value value rb_tok
+
+    value           shift and go to state 64
+
+
+state 63
+
+    (17) distribution -> normal_tok lb_tok value . value rb_tok
+
+    value           shift and go to state 65
+
+
+state 64
+
+    (18) distribution -> uniform_tok lb_tok value . value value rb_tok
+
+    value           shift and go to state 66
+
+
+state 65
+
+    (17) distribution -> normal_tok lb_tok value value . rb_tok
+
+    rb_tok          shift and go to state 67
+
+
+state 66
+
+    (18) distribution -> uniform_tok lb_tok value value . value rb_tok
+
+    value           shift and go to state 68
+
+
+state 67
+
+    (17) distribution -> normal_tok lb_tok value value rb_tok .
+
+    rb_tok          reduce using rule 17 (distribution -> normal_tok lb_tok value value rb_tok .)
+    this_tok        reduce using rule 17 (distribution -> normal_tok lb_tok value value rb_tok .)
+
+
+state 68
+
+    (18) distribution -> uniform_tok lb_tok value value value . rb_tok
+
+    rb_tok          shift and go to state 69
+
+
+state 69
+
+    (18) distribution -> uniform_tok lb_tok value value value rb_tok .
+
+    rb_tok          reduce using rule 18 (distribution -> uniform_tok lb_tok value value value rb_tok .)
+    this_tok        reduce using rule 18 (distribution -> uniform_tok lb_tok value value value rb_tok .)
+

@@ -1,0 +1,8 @@
+.idea/
+venv/
+*.pyproject
+*.pyproject.user
+__pycache__/
+.vscode/
+.DS_Store
+pdfs/

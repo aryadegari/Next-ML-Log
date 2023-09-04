@@ -1,0 +1,65 @@
+{'Decision Tree': {'ccp_alpha': 'non-negative float, default=0.0',
+                   'class_weight': 'dict, list of dict or “balanced”, '
+                                   'default=None',
+                   'criterion': '{“gini”, “entropy”, “log_loss”}, '
+                                'default=”gini”',
+                   'max_depth': 'int, default=None',
+                   'max_features': 'int, float or {“auto”, “sqrt”, “log2”}, '
+                                   'default=None',
+                   'max_leaf_nodes': 'int, default=None',
+                   'min_impurity_decrease': 'float, default=0.0',
+                   'min_samples_leaf': 'int or float, default=1',
+                   'min_samples_split': 'int or float, default=2',
+                   'min_weight_fraction_leaf': 'float, default=0.0',
+                   'random_state': 'int, RandomState instance or None, '
+                                   'default=None',
+                   'splitter': '{“best”, “random”}, default=”best”'},
+ 'Generalized LVQ': {'activation_params': 'dict, default=None',
+                     'activation_type': '{“identity”, “sigmoid”, “soft+”, '
+                                        '“swish”}, default=”sigmoid”',
+                     'discriminant_params': 'dict, default=None',
+                     'discriminant_type': '“relative-distance”',
+                     'distance_params': 'dict, optional, default=None',
+                     'distance_type': '{“squared-euclidean”, “euclidean”}, '
+                                      'default=”squared-euclidean”',
+                     'force_all_finite': '{True, “allow-nan”}, default=True',
+                     'prototype_init': '“class-conditional-mean” or \n'
+                                       ' ndarray, '
+                                       'default=”class-conditional-mean”',
+                     'prototype_n_per_class': 'int or np.ndarray, optional, '
+                                              'default=1',
+                     'random_state': 'int, RandomState instance, default=None',
+                     'solver_params': 'dict, default=None',
+                     'solver_type': '{“sgd”, “wgd”, “adam”, “lbfgs”, “bfgs”}'},
+ 'K-Nearest Neighbors': {'algorithm': '{“auto”, “ball_tree”, “kd_tree”, '
+                                      '“brute”}, default=”auto”',
+                         'leaf_size': 'int, default=30',
+                         'metric': 'str or callable, default=”minkowski”',
+                         'metric_params': 'dict, default=None',
+                         'n_jobs': 'int, default=None',
+                         'n_neighbors': 'int, default=5',
+                         'p': 'int, default=2',
+                         'weights': '{“uniform”, “distance”}, callable or '
+                                    'None, default=”uniform”'},
+ 'Random Forest': {'bootstrap': 'bool, default=True',
+                   'ccp_alpha': 'non-negative float, default=0.0',
+                   'class_weight': '{“balanced”, “balanced_subsample”},\n'
+                                   ' dict or list of dicts, default=None',
+                   'criterion': '{“gini”, “entropy”, “log_loss”}, '
+                                'default=”gini”',
+                   'max_depth': 'int, default=None',
+                   'max_features': '{“sqrt”, “log2”, None}, int or float, '
+                                   'default=”sqrt”',
+                   'max_leaf_nodes': 'int, default=None',
+                   'max_samples': 'int or float, default=None',
+                   'min_impurity_decrease': 'float, default=0.0',
+                   'min_samples_leaf': 'int or float, default=1',
+                   'min_samples_split': 'int or float, default=2',
+                   'min_weight_fraction_leaf': 'float, default=0.0',
+                   'n_estimators': 'int, default=100',
+                   'n_jobs': 'int, default=None',
+                   'oob_score': 'bool, default=False',
+                   'random_state': 'int, RandomState instance or None, '
+                                   'default=None',
+                   'verbose': 'int, default=0',
+                   'warm_start': 'bool, default=False'}}

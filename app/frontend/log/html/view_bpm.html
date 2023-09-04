@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="light_theme.css">
+		<script src="bpmn_io.js"></script>
+		<script src="jquery.js"></script>
+	</head>
+	<body>
+		<div id="canvas"></div>
+		<script>
+			var bpmnXML = `<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0lxs1cx" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="12.0.0">
+  <bpmn:process id="Process_1ymjcr0" isExecutable="false">
+    <bpmn:startEvent id="Event_19pgb8z">
+      <bpmn:outgoing>Flow_1rd553n</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_1d4mjcw" name="A">
+      <bpmn:incoming>Flow_1rd553n</bpmn:incoming>
+      <bpmn:outgoing>Flow_1r4nexy</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_007h29v" name="B">
+      <bpmn:incoming>Flow_1r4nexy</bpmn:incoming>
+      <bpmn:outgoing>Flow_1bu39cn</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_1126y0s" name="C">
+      <bpmn:incoming>Flow_1bu39cn</bpmn:incoming>
+      <bpmn:outgoing>Flow_1n9hasf</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1rd553n" sourceRef="Event_19pgb8z" targetRef="Activity_1d4mjcw" />
+    <bpmn:sequenceFlow id="Flow_1r4nexy" sourceRef="Activity_1d4mjcw" targetRef="Activity_007h29v" />
+    <bpmn:sequenceFlow id="Flow_1bu39cn" sourceRef="Activity_007h29v" targetRef="Activity_1126y0s" />
+    <bpmn:task id="Activity_1hqprne" name="D">
+      <bpmn:incoming>Flow_1n9hasf</bpmn:incoming>
+      <bpmn:outgoing>Flow_00io1a7</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_1324xla" name="E">
+      <bpmn:incoming>Flow_00io1a7</bpmn:incoming>
+      <bpmn:outgoing>Flow_0smhp59</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_1gftmfj" name="F">
+      <bpmn:incoming>Flow_0smhp59</bpmn:incoming>
+      <bpmn:outgoing>Flow_1sd7l2t</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_1w4nl7b">
+      <bpmn:incoming>Flow_1sd7l2t</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1n9hasf" sourceRef="Activity_1126y0s" targetRef="Activity_1hqprne" />
+    <bpmn:sequenceFlow id="Flow_00io1a7" sourceRef="Activity_1hqprne" targetRef="Activity_1324xla" />
+    <bpmn:sequenceFlow id="Flow_0smhp59" sourceRef="Activity_1324xla" targetRef="Activity_1gftmfj" />
+    <bpmn:sequenceFlow id="Flow_1sd7l2t" sourceRef="Activity_1gftmfj" targetRef="Event_1w4nl7b" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1ymjcr0">
+      <bpmndi:BPMNShape id="Event_19pgb8z_di" bpmnElement="Event_19pgb8z">
+        <dc:Bounds x="152" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_007h29v_di" bpmnElement="Activity_007h29v">
+        <dc:Bounds x="420" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1126y0s_di" bpmnElement="Activity_1126y0s">
+        <dc:Bounds x="590" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1d4mjcw_di" bpmnElement="Activity_1d4mjcw">
+        <dc:Bounds x="260" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1hqprne_di" bpmnElement="Activity_1hqprne">
+        <dc:Bounds x="760" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1324xla_di" bpmnElement="Activity_1324xla">
+        <dc:Bounds x="920" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1gftmfj_di" bpmnElement="Activity_1gftmfj">
+        <dc:Bounds x="1090" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1w4nl7b_di" bpmnElement="Event_1w4nl7b">
+        <dc:Bounds x="1262" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1rd553n_di" bpmnElement="Flow_1rd553n">
+        <di:waypoint x="188" y="120" />
+        <di:waypoint x="260" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1r4nexy_di" bpmnElement="Flow_1r4nexy">
+        <di:waypoint x="360" y="120" />
+        <di:waypoint x="420" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1bu39cn_di" bpmnElement="Flow_1bu39cn">
+        <di:waypoint x="520" y="120" />
+        <di:waypoint x="590" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1n9hasf_di" bpmnElement="Flow_1n9hasf">
+        <di:waypoint x="690" y="120" />
+        <di:waypoint x="760" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_00io1a7_di" bpmnElement="Flow_00io1a7">
+        <di:waypoint x="860" y="120" />
+        <di:waypoint x="920" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0smhp59_di" bpmnElement="Flow_0smhp59">
+        <di:waypoint x="1020" y="120" />
+        <di:waypoint x="1090" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1sd7l2t_di" bpmnElement="Flow_1sd7l2t">
+        <di:waypoint x="1190" y="120" />
+        <di:waypoint x="1262" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
+`;
+			var bpmnViewer = new BpmnJS({
+			    container: '#canvas'
+			});
+			function openDiagram(bpmnXML) {
+			    try {
+			        bpmnViewer.importXML(bpmnXML);
+			        var canvas = bpmnViewer.get('canvas');
+			        var overlays = bpmnViewer.get('overlays');
+			        canvas.zoom('fit-viewport');
+			    } catch (err) {
+			        console.error('could not import BPMN 2.0 diagram', err);
+			    }
+			}
+			openDiagram(bpmnXML);
+		</script>
+	</body>
+</html>

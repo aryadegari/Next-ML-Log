@@ -1,0 +1,50 @@
+    <rules> ::= <rules> <rule> `;' <comment>?
+    \alt <\textepsilon> <comment>?
+
+    <rule> ::= `if' <identifier> <expr> `then' <action>
+    \alt `if' <rt\_expr> `then' <action>
+
+    <expr> ::= `#' <identifier> <equality> <value>
+    \alt `@' <identifier> <equality> <value>
+
+    <rt\_expr> ::= `!' <identifier> <equality> <value>
+
+    <action> ::= `skip' <identifier>
+    \alt `insert' <identifier> `(' <attributes> `)'
+    \alt `insert' <identifier>
+    \alt <parallel\_list>
+    \alt <sequential\_list>
+
+    <parallel\_list> ::= <parallel\_item>
+    \alt <parallel\_next>
+
+    <parallel\_item> ::= <identifier> `+' <identifier>
+
+    <parallel\_next> ::= `+' <identifier>
+    \alt <parallel\_next> `+' <identifier>
+
+    <seq\_list> ::= <seq\_item>
+    \alt <seq\_next>
+
+    <seq\_item> ::= <identifier> `-' <identifier>
+
+    <seq\_next> ::= `-' <identifier>
+    \alt <seq\_next> `-' <identifier>
+
+    <attributes> ::= <attributes> `#' <identifier> <value>
+    \alt <attributes> `#' <identifier> <distribution>
+    \alt `#' <identifier> <value>
+    \alt `#' <identifier> <distribution>
+
+    <distribution> ::= `?N' `[' <value> <value> `]'
+    \alt `?U' `[' <value> <value> <value> `]'
+
+    <identifier> ::= [a-zA-Z\_][a-zA-Z0-9\_]*
+
+    <value> ::= [0-9]+[`.'[0-9]+]?
+
+    <equality> ::= `<=' | `>=' | `<' | `>' | `==' | `!='
+
+    <comment> ::= `//' .+
+
+    <\textepsilon> ::= `'

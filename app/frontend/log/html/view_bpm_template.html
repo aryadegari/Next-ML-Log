@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="light_theme.css">
+		<script src="bpmn_io.js"></script>
+		<script src="jquery.js"></script>
+	</head>
+	<body>
+		<div id="canvas"></div>
+		<script>
+			var bpmnXML = ``;
+			var bpmnViewer = new BpmnJS({
+			    container: '#canvas'
+			});
+			function openDiagram(bpmnXML) {
+			    try {
+			        bpmnViewer.importXML(bpmnXML);
+			        var canvas = bpmnViewer.get('canvas');
+			        var overlays = bpmnViewer.get('overlays');
+			        canvas.zoom('fit-viewport');
+			    } catch (err) {
+			        console.error('could not import BPMN 2.0 diagram', err);
+			    }
+			}
+			openDiagram(bpmnXML);
+		</script>
+	</body>
+</html>
