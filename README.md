@@ -1,7 +1,6 @@
 # Synthetic Event Log Generation / Machine Learning on Business Process Data
 
-Implementation of the paper "Cartwright, D., Sterie, R.A., Yadegari Ghahderijani, A., Karastoyanova, D.: Adaptive Process Log Generation and Analysis
-with Next Log and ML Log" submitted to [EDOC 2023 Demonstration Track](https://www.rug.nl/research/bernoulli/conf/edoc-2023/call-for-papers/call-for-demonstration?lang=en).
+Implementation of the paper "Cartwright, D., Sterie, R.A., Yadegari Ghahderijani, A., Karastoyanova, D.: Adaptive Process Log Generation and Analysis with Next(Log) and ML.Log" submitted to [EDOC 2023 Demonstration Track](https://www.rug.nl/research/bernoulli/conf/edoc-2023/call-for-papers/call-for-demonstration?lang=en).
 
 ### Project Description
 
