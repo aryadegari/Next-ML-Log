@@ -1,8 +1,9 @@
 .idea/
-venv/
+.venv/
 *.pyproject
 *.pyproject.user
 __pycache__/
 .vscode/
 .DS_Store
 pdfs/
+app/frontend/log/html/view_bpm.html
