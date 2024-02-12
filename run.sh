@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the path to your virtual environment's activate script
-venv_activate="venv/bin/activate"
+venv_activate="./venv/bin/activate"
 
 # Check if the virtual environment activation script exists
 if [ -f "$venv_activate" ]; then
