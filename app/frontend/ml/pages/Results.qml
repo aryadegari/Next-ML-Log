@@ -195,6 +195,17 @@ Item {
                     columnSpacing: theme_handler.page_loader_margins - 75
                     rowSpacing: theme_handler.page_loader_margins - 225
 
+                    Text{
+                        text: "<b>(Best) Model:</b> " + ml_log.train_statistics["model_name"]
+                        color: theme_handler.primary_text_colour
+                    }
+
+                    Text {}
+
+                    Text {}
+
+                    Text {}
+
                     Text {
                         text: "<b>Train</b> " + training_information["train"] + (training_information["train"] === "" ? "" : "%")
                         color: theme_handler.primary_text_colour
@@ -214,10 +225,6 @@ Item {
                         text: "<b>Accuracy</b>: " + ml_log.train_statistics["testing_accuracy"]
                         color: theme_handler.primary_text_colour
                     }
-
-                    Text {}
-
-                    Text {}
 
                     Text {}
 
