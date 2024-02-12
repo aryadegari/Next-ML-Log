@@ -1,5 +1,5 @@
 .idea/
-.venv/
+venv/
 *.pyproject
 *.pyproject.user
 __pycache__/

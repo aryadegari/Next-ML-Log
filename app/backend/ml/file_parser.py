@@ -16,7 +16,7 @@ class FileParser:
     def parse_general_csv(self) -> tuple[pd.DataFrame, pd.Series]:
         print("-----------------------General CSV---------------------------")
         data = pd.read_csv(self.file_path)
-        labels = data.iloc[:, -1] 
+        labels = data.iloc[:, -1]
         features = data.iloc[:, : -1]
         print("FINAL DATAFRAMES")
         print(features)
@@ -29,7 +29,7 @@ class FileParser:
         print("-----------------------Specific CSV---------------------------")
         data = pd.read_csv(self.file_path)
         data = data.drop(['trace_id'], axis=1)
-        labels = data["_Label"] #.iloc[:,-1]
+        labels = data["_Label"]  # .iloc[:,-1]
         # Identify the first rules column index
         symbol_columns = []
         for column in data.columns:
@@ -40,7 +40,8 @@ class FileParser:
         features = data.drop(rules, axis=1).iloc[:, : -1]
         strings_to_drop = ["#start_time", "#end_time", "@occurred", "_Path"]
         # Get the columns to drop
-        columns_to_drop = [col for col in features.columns if any(string in col for string in strings_to_drop)]
+        columns_to_drop = [col for col in features.columns if any(
+            string in col for string in strings_to_drop)]
         features = features.drop(columns=columns_to_drop)
         # get all events affected by the rules so that you avoid 1 : 1 mappings
         # CONSTRAINTS: RULES CAN NOT HAVE _ INSIDE THE NAME eg SK_IP
@@ -52,8 +53,9 @@ class FileParser:
             start_index = result_string.find("(")
             end_index = result_string.rfind(")")
             if start_index != -1 and end_index != -1:
-                result_string =  result_string[:start_index] + result_string[end_index + 1:]
-            result_string = result_string[:-1] 
+                result_string = result_string[:start_index] + \
+                    result_string[end_index + 1:]
+            result_string = result_string[:-1]
             if "+" in result_string:
                 result_strings = result_string.split("+")
                 for string in result_strings:
@@ -81,9 +83,9 @@ class FileParser:
         print(features.keys())
         print(labels)
         print("-----------------------\Specific CSV---------------------------")
-        print(f'If you are using Random Forest use {2 ** len(rules.columns) - 1} for max_leaf_nodes')
+        print(
+            f'If you are using Random Forest use {2 ** len(rules.columns) - 1} for max_leaf_nodes')
         return (features, labels)
-
 
     def get_timestamps(self, value):
         if 'T' in str(value):

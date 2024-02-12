@@ -88,12 +88,13 @@ Window {
 
         function onTraining_statistics_signal(msg){
             msg = JSON.parse(msg)
-            ml_log_app.train_statistics["training_accuracy"] = msg["training_accuracy"];
-            ml_log_app.train_statistics["testing_accuracy"] = msg["testing_accuracy"];
+            ml_log_app.train_statistics["model_name"] = msg["model_name"]
+            ml_log_app.train_statistics["training_accuracy"] = msg["training_accuracy"]
+            ml_log_app.train_statistics["testing_accuracy"] = msg["testing_accuracy"]
             ml_log_app.train_statistics["f1"] = msg["f1"]
             ml_log_app.train_statistics["precision"] = msg["precision"]
             ml_log_app.train_statistics["recall"] = msg["recall"]
-            ml_log_app.training_parameters = msg["parameters"];
+            ml_log_app.training_parameters = msg["parameters"]
             backend.export_images()
             ml_log_app.reset_results()
         }

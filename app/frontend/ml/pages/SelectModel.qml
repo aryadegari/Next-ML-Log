@@ -224,11 +224,19 @@ Item {
         LeftBarButton {
             id: auto_ml_button
             property bool selected: false
+            width: theme_handler.left_bar_button_width + 5
+            height: theme_handler.left_bar_button_height + 15
             anchors {
                 bottom: parent.bottom
                 left: parent.left
                 bottomMargin: theme_handler.page_loader_margins - 30
                 leftMargin: theme_handler.page_loader_margins - 30
+            }
+            Label {
+                text: "AutoML"
+                font.bold: true
+                color: theme_handler.primary_text_colour
+                horizontalAlignment: Text.AlignHCenter
             }
             background: Rectangle {
                 color: auto_ml_button.selected ? theme_handler.secondary_bar_colour : "transparent"
