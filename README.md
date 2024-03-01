@@ -1,10 +1,10 @@
 # Synthetic Event Log Generation / Machine Learning on Business Process Data
 
-Implementation of the paper "Cartwright, D., Sterie, R.A., Yadegari Ghahderijani, A., Karastoyanova, D.: Adaptive Process Log Generation and Analysis with Next(Log) and ML.Log" submitted to [EDOC 2023 Demonstration Track](https://www.rug.nl/research/bernoulli/conf/edoc-2023/call-for-papers/call-for-demonstration?lang=en).
+Implementation of the paper "Cartwright, D., Sterie, R.A., Yadegari Ghahderijani, A., Karastoyanova, D.: Adaptive Process Log Generation and Analysis with Next(Log) and ML.Log" https://doi.org/10.1007/978-3-031-54712-6_21
 
 ### Project Description
 
-This desktop app is a combination of both of our thesis projects; 
+This desktop app is a combination of both of two thesis projects; 
 
 To get a better overview of the programs, click the "Info" page inside each program.
 
@@ -14,7 +14,7 @@ The objective of this project is to develop a sophisticated tool for generating 
 
 #### 2. ML.log
 
-The objective of this project is to utilize machine learning algorithms on adaptive business process logs to identify correlations in a way that builds upon existing experiments. The project seeks to develop insights into business processes . To achieve this objective, the project will employ various machine learning techniques to analyse sets of adaptive business process data and identify patterns.
+The objective of this project is to utilize machine learning algorithms on adaptive business process logs to identify correlations in a way that builds upon existing experiments. The project seeks to develop insights into business processes. To achieve this objective, the project will employ various machine learning techniques to analyse sets of adaptive business process data and identify patterns.
 
 ### Demostration Video
 The [Demonstration Video](https://doi.org/10.6084/m9.figshare.24082083.v1) explains briefly how the tool works and shows some of its features.
